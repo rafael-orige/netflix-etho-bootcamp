@@ -34,7 +34,7 @@ npm install
 
 - Iniciar o servidor: 
 ```bash
-yarn dev
+yarn start
 # ou
-npm run dev
+npm run start
 ```
