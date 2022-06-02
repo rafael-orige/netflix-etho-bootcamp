@@ -1,7 +1,13 @@
 import React, { useState, useCallback } from "react";
 import * as yup from "yup";
 import { Grid } from "@mui/material";
-import { Wrapper, Input, Button, Error } from "./login.styled";
+import { Wrapper } from "./login.styled";
+
+import Input from "../../components/Input/input";
+import Button from "../../components/Button/button";
+import FormError from "../../components/FormError/formError";
+
+
 
 export default function Login() {
     const [data, setData] = useState({
@@ -51,8 +57,8 @@ export default function Login() {
                     onChange={handleChange}
                     name="password"
                 />
+                <FormError message={error} />
                 <Button onClick={handleSend}>Entrar</Button>
-                <Error>{error}</Error>
             </Grid>
         </Wrapper>
     )
