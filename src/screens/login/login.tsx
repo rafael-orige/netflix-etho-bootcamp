@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from "react";
 import * as yup from "yup";
 import { Grid } from "@mui/material";
-import { Wrapper } from "./login.styled";
+import { Wrapper, Logo } from "./login.styled";
+
+import NetflixLogo from "../../assets/netflix-logo.png";
 
 import Input from "../../components/Input/input";
 import Button from "../../components/Button/button";
@@ -34,7 +36,7 @@ export default function Login() {
 
             setError("");
         } catch (e: any) {
-            setError(e.errors[0])
+            setError(e.errors[0] + ".")
             console.log("Deu erro!", error)
         }
     }, [data])
@@ -44,6 +46,7 @@ export default function Login() {
     return (
         <Wrapper container justifyContent="center" alignContent="center">
             <Grid item container justifyContent="center" alignContent="center" xs={2}>
+                <Logo src={NetflixLogo} alt="netflix-logo" />
                 <Input
                     placeholder="Email"
                     type="text"
