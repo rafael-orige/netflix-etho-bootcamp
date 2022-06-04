@@ -1,10 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
-import theme from "../../theme/main/theme";
+import component from "../../test/redux-connected-component";
 import Login from "./login";
 
 describe("Component: <Login />", () => {
-    const LoginComponent = <ThemeProvider theme={theme}><Login /></ThemeProvider>;
+    const LoginComponent = component(<Login />);
 
     it("Should have an image", () => {
         render(LoginComponent);
