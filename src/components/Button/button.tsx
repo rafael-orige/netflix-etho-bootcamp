@@ -1,5 +1,10 @@
 import { Button as ButtonStyled } from "./button.styled";
 
-export default function Button(props: any) {
-    return <ButtonStyled {...props} />
+type Props = {
+    onClick: () => void,
+    children: string
+}
+
+export default function Button({ onClick, children }: Props) {
+    return <ButtonStyled onClick={onClick} children={children} />
 }
