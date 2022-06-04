@@ -1,27 +1,34 @@
 import React, { useState, useCallback } from "react";
 import * as yup from "yup";
-import { Grid } from "@mui/material";
-import { Wrapper } from "./login.styled";
+import { useAppDispatch as useDispatch, useAppSelector as useSelector } from "../../redux/hooks/hooks";
+import userSlice from "../../redux/user/user.slice";
+import { authenticated } from "../../redux/user/user.selected";
 
 import Input from "../../components/Input/input";
 import Button from "../../components/Button/button";
 import FormError from "../../components/FormError/formError";
 
+import NetflixLogo from "../../assets/images/netflix-logo.png";
 
+import { Grid } from "@mui/material";
+import { Wrapper, Logo } from "./login.styled";
 
 export default function Login() {
     const [data, setData] = useState({
         email: '',
         password: ''
-    })
+    });
     const [error, setError] = useState("");
+
+    const dispatch = useDispatch();
+    const userAuthenticated = useSelector(authenticated)
 
     const handleChange = useCallback(({ target }: React.ChangeEvent<HTMLInputElement>) => {
         setData(prevData => ({
             ...prevData,
             [target.name]: target.value
-        }))
-    }, [setData])
+        }));
+    }, [setData]);
 
     const handleSend = useCallback(async () => {
         try {
@@ -33,17 +40,17 @@ export default function Login() {
             await schema.validate(data);
 
             setError("");
+            dispatch(userSlice.actions.authenticated(true));
         } catch (e: any) {
-            setError(e.errors[0])
-            console.log("Deu erro!", error)
+            setError(e.errors[0]);
+            console.log("Deu erro!", error);
         }
-    }, [data])
-
-
+    }, [data]);
 
     return (
         <Wrapper container justifyContent="center" alignContent="center">
             <Grid item container justifyContent="center" alignContent="center" xs={2}>
+                <Logo src={NetflixLogo} alt="netflix-logo" />
                 <Input
                     placeholder="Email"
                     type="text"
