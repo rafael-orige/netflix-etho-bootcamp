@@ -3,11 +3,6 @@ export const border = {
     medium: "5px",
 }
 
-export const font = {
-    fontFamily: "Open Sans"
-}
-
 export const layout = {
     border,
-    font
 }
