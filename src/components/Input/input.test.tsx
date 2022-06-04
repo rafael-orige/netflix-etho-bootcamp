@@ -1,11 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import UserEvent from "@testing-library/user-event"
-import { ThemeProvider } from "styled-components";
-import theme from "../../theme/main/theme";
+import { component } from "../../test/component";
 import Input from "./input";
 
 describe("Component: <Input />", () => {
-    const InputComponent = <ThemeProvider theme={theme}><Input /></ThemeProvider>
+    const InputComponent = component(<Input />);
 
     it("Should have an input", () => {
         render(InputComponent);
@@ -20,7 +19,7 @@ describe("Component: <Input />", () => {
 
         const input = screen.getByRole("textbox");
 
-        UserEvent.type(input, "Hello!")
+        UserEvent.type(input, "Hello!");
 
         expect(input).toHaveValue("Hello!");
     })
