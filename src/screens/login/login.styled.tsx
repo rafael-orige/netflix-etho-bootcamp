@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Grid } from "@mui/material";
 
-import Background from "../../assets/login-background.png";
+import Background from "../../assets/images/login-background.png";
 
 export const Wrapper = styled(Grid)`
     position: relative;
