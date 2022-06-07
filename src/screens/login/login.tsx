@@ -31,8 +31,8 @@ export default function Login() {
     const handleSend = useCallback(async () => {
         try {
             const schema = yup.object().shape({
-                email: yup.string().required().email(),
-                password: yup.string().required()
+                email: yup.string().required("Por favor, preencha o campo de email.").email(),
+                password: yup.string().required("Por favor, preencha o campo de senha.")
             })
 
             await schema.validate(data);
@@ -40,7 +40,7 @@ export default function Login() {
             setError("");
             dispatch(userSlice.actions.authenticated(true));
         } catch (error: any) {
-            setError(error.errors[0] + ".");
+            setError(error.errors[0]);
             console.log("Deu erro!", error);
         }
     }, [data]);
