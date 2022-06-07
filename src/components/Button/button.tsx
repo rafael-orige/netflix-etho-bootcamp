@@ -1,10 +1,11 @@
+import React from "react";
 import { Button as ButtonStyled } from "./button.styled";
 
 type Props = {
     onClick: () => void,
-    children: string
+    children: React.ReactNode
 }
 
 export default function Button({ onClick, children }: Props) {
-    return <ButtonStyled onClick={onClick} children={children} />
+    return <ButtonStyled onClick={onClick}>{children}</ButtonStyled>
 }
