@@ -1,3 +1,4 @@
+import React from "react"
 import { ThemeProvider } from "styled-components"
 import theme from "../theme/main/theme"
 import { Provider } from "react-redux"

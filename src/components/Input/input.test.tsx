@@ -1,3 +1,4 @@
+import React from "react";
 import { render, screen } from "@testing-library/react";
 import UserEvent from "@testing-library/user-event"
 import { component } from "../../test/component";
