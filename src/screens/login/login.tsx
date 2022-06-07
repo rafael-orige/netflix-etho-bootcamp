@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from "react";
 import * as yup from "yup";
-import { useAppDispatch as useDispatch, useAppSelector as useSelector } from "../../redux/hooks/hooks";
+import { useAppDispatch as useDispatch } from "../../redux/hooks/hooks";
 import userSlice from "../../redux/user/user.slice";
-import { authenticated } from "../../redux/user/user.selected";
 
 import Input from "../../components/Input/input";
 import Button from "../../components/Button/button";
@@ -21,7 +20,6 @@ export default function Login() {
     const [error, setError] = useState("");
 
     const dispatch = useDispatch();
-    const userAuthenticated = useSelector(authenticated)
 
     const handleChange = useCallback(({ target }: React.ChangeEvent<HTMLInputElement>) => {
         setData(prevData => ({
@@ -69,4 +67,4 @@ export default function Login() {
             </Grid>
         </Wrapper>
     )
-};
+}
