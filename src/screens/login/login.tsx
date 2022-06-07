@@ -3,9 +3,7 @@ import * as yup from "yup";
 import { useAppDispatch as useDispatch } from "../../redux/hooks/hooks";
 import userSlice from "../../redux/user/user.slice";
 
-import Input from "../../components/Input/input";
-import Button from "../../components/Button/button";
-import FormError from "../../components/FormError/formError";
+import { Input, FormError, Button } from "../../components";
 
 import NetflixLogo from "../../assets/images/netflix-logo.png";
 
