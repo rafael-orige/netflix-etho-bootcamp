@@ -39,8 +39,8 @@ export default function Login() {
 
             setError("");
             dispatch(userSlice.actions.authenticated(true));
-        } catch (e: any) {
-            setError(e.errors[0]);
+        } catch (error: any) {
+            setError(error.errors[0]);
             console.log("Deu erro!", error);
         }
     }, [data]);
