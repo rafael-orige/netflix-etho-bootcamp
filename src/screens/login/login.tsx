@@ -40,7 +40,7 @@ export default function Login() {
             setError("");
             dispatch(userSlice.actions.authenticated(true));
         } catch (error: any) {
-            setError(error.errors[0]);
+            setError(error.errors[0] + ".");
             console.log("Deu erro!", error);
         }
     }, [data]);
