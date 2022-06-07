@@ -6,6 +6,7 @@ export const Input = styled.input`
     padding: 9px;
     margin: 0 0 22px;
     box-sizing: border-box;
+    outline: none;
 
     border: ${props => {
         const { theme: { layout, palette } } = props;
