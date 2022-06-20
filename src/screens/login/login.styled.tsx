@@ -30,6 +30,6 @@ export const Wrapper = styled(Grid)`
 `;
 
 export const Logo = styled.img`
-    width: 288px;
+    width: 100%;
     margin-bottom: 139px;
 `;
