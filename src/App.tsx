@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store/store';
 import theme from './theme/main/theme';
@@ -15,20 +15,18 @@ import { GlobalStyles } from './theme/main/global-styles';
 
 function App() {
   return (
-    <>
-      <Provider store={store}>
-        <GlobalStyles />
-        <ThemeProvider theme={theme}>
-          <BrowserRouter>
-            <Routes>
-              <Route element={<Login />} path={LOGIN_URL} />
-              <Route element={<MovieList />} path={MOVIES_LIST_URL} />
-            </Routes>
-          </BrowserRouter>
-        </ThemeProvider>
-      </Provider>
-    </>
-  )
+    <Provider store={store}>
+      <GlobalStyles />
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<Login />} path={LOGIN_URL} />
+            <Route element={<MovieList />} path={MOVIES_LIST_URL} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
+  );
 }
 
 export default App;

@@ -1,3 +1,3 @@
-import { RootState } from "../store/store";
+import { Store } from '../store/store.type';
 
-export const authenticated = (state: RootState) => state.user.authenticated;
+export const user = (state: Store) => state.user.data;

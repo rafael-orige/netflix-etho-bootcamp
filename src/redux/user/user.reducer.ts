@@ -1,11 +1,12 @@
-import { PayloadAction } from "@reduxjs/toolkit"
+import { PayloadAction } from '@reduxjs/toolkit';
+import { User } from './user.type';
 
-const authenticated = (state: { authenticated: boolean }, action: PayloadAction<boolean>) => {
-    state.authenticated = action.payload
-}
+const setData = (state: User, action: PayloadAction<User>) => {
+  state.data = action.payload.data;
+};
 
 const reducers = {
-    authenticated
-}
+  setData,
+};
 
-export default reducers
+export default reducers;
