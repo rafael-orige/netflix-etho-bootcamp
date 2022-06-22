@@ -20,8 +20,14 @@ extends: [
     '@typescript-eslint',
   ],
   rules: {
+    '@typescript-eslint/no-unused-vars': [
+      "error",
+      {
+        argsIgnorePattern: '^_'
+      }
+    ],
     'import/prefer-default-export': 'off',
-    'no-console': 'off',
+    'no-console': 'warn',
     'max-len': 'off',
     'no-param-reassign': ['error', {
       props: true,
