@@ -1,3 +1,3 @@
 import { Store } from '../store/store.type';
 
-export const user = (state: Store) => state.user.data;
+export const user = (state: Store) => state.user;

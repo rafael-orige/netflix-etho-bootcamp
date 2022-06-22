@@ -1,14 +1,14 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import * as yup from 'yup';
 import { Grid } from '@mui/material';
-import { useAppDispatch as useDispatch, useAppSelector as useSelector } from '../../redux/hooks/hooks';
-import { user } from '../../redux/user/user.selected';
-import userSlice from '../../redux/user/user.slice';
+import { useAppDispatch as useDispatch, useAppSelector as useSelector } from '@store/hooks/hooks';
+import { user } from '@store/user/user.selected';
+import { setAuthentication } from '@store/user/user.slice';
+import { Input, FormError, Button } from '@components';
+import { Error } from '@type/yup';
 
 import NetflixLogo from '../../assets/images/netflix-logo.png';
-import { Input, FormError, Button } from '../../components';
 import { Wrapper, Logo } from './login.styled';
-import { Error } from '../../types/yup';
 
 export default function Login() {
   const [data, setData] = useState({
@@ -36,11 +36,7 @@ export default function Login() {
       await schema.validate(data);
 
       setError('');
-      dispatch(userSlice.actions.setData({
-        data: {
-          email: data.email,
-        },
-      }));
+      dispatch(setAuthentication(data));
     } catch (yupError: any) {
       setError((yupError as Error).errors[0]);
       console.log('Deu erro!', yupError);

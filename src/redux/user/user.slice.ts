@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import reducers from './user.reducer';
-import { User } from './user.type';
+import { Data } from './user.type';
 
-const initialState: User = {
+const initialState: Data = {
   data: {},
+  error: '',
 };
 
 const userSlice = createSlice({
@@ -13,3 +14,4 @@ const userSlice = createSlice({
 });
 
 export default userSlice;
+export const { setAuthentication, setData, setError } = userSlice.actions;
