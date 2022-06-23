@@ -1,3 +1,3 @@
 import { Store } from '../store/store.type';
 
-export const user = (state: Store) => state.user;
+export const tokenSelector = (state: Store) => state.user.data.token;
