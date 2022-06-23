@@ -1,23 +1,27 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import * as yup from 'yup';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { MOVIES_LIST_URL } from '@screens/movies-list/movies-list.type';
 import { Grid } from '@mui/material';
 import { useAppDispatch as useDispatch, useAppSelector as useSelector } from '@store/hooks/hooks';
-import { user } from '@store/user/user.selected';
+import { tokenSelector } from '@store/user/user.selected';
 import { setAuthentication } from '@store/user/user.slice';
-import { Input, FormError, Button } from '@components';
 import { Error } from '@type/yup';
+import NetflixLogo from '@assets/images/netflix-logo.png';
+import { Input, FormError, Button } from '@components';
 
-import NetflixLogo from '../../assets/images/netflix-logo.png';
 import { Wrapper, Logo } from './login.styled';
 
 export default function Login() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const dispatch = useDispatch();
+
   const [data, setData] = useState({
     email: '',
     password: '',
   });
   const [error, setError] = useState('');
-
-  const dispatch = useDispatch();
 
   const handleChange = useCallback(({ target }: React.ChangeEvent<HTMLInputElement>) => {
     setData((prevData) => ({
@@ -39,14 +43,17 @@ export default function Login() {
       dispatch(setAuthentication(data));
     } catch (yupError: any) {
       setError((yupError as Error).errors[0]);
-      console.log('Deu erro!', yupError);
     }
   }, [data]);
 
-  const userRedux = useSelector(user);
+  const userAuthenticated = useSelector(tokenSelector);
   useEffect(() => {
-    console.log(userRedux);
-  }, [data.email]);
+    if (userAuthenticated) {
+      navigate(MOVIES_LIST_URL, {
+        state: location,
+      });
+    }
+  }, [userAuthenticated]);
 
   return (
     <Wrapper container justifyContent="center" alignContent="center">
