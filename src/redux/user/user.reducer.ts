@@ -6,7 +6,7 @@ const setData = (state: Data, action: PayloadAction<User>) => {
   state.data = action.payload;
 };
 
-const setError = (state: Data, action: PayloadAction<string>) => {
+const setError = (state: Data, action: PayloadAction<Data['error']>) => {
   state.error = action.payload;
 };
 
