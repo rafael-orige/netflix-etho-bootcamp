@@ -21,10 +21,13 @@
         "src/theme/*"
       ],
       "@components": [
-        "src/components/"
+        "src/components"
       ],
       "@assets/*": [
         "src/assets/*"
+      ],
+      "@enums": [
+        "src/enums"
       ]
     }
   }
