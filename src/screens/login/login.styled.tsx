@@ -27,6 +27,12 @@ export const Wrapper = styled(Grid)`
         opacity: 0.95;
         z-index: -1;
     }
+
+    div {
+      min-width: 320px;
+      max-width: 400px;
+      padding: 20px;
+    }
 `;
 
 export const Logo = styled.img`

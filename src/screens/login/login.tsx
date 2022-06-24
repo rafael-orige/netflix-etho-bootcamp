@@ -57,7 +57,7 @@ export default function Login() {
 
   return (
     <Wrapper container justifyContent="center" alignContent="center">
-      <Grid item container justifyContent="center" alignContent="center" xs={2}>
+      <Grid item container justifyContent="center" alignContent="center">
         <Logo src={NetflixLogo} alt="netflix-logo" />
         <Input
           placeholder="Email"
