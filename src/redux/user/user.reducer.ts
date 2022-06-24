@@ -1,21 +1,24 @@
-import { PayloadAction } from '@reduxjs/toolkit';
-import { AuthPayload } from '@services/user/user.type';
-import { User, Data } from './user.type';
+import {
+  SetData, SetError, SetAuthentication, SanitizeAuthentication,
+} from './user.type';
 
-const setData = (state: Data, action: PayloadAction<User>) => {
+const setData: SetData = (state, action) => {
   state.data = action.payload;
 };
 
-const setError = (state: Data, action: PayloadAction<Data['error']>) => {
+const setError: SetError = (state, action) => {
   state.error = action.payload;
 };
 
-const setAuthentication = (_state: Data, _action: PayloadAction<AuthPayload>) => { };
+const setAuthentication: SetAuthentication = (_state, _action) => { };
+
+const sanitizeAuthentication: SanitizeAuthentication = (_state, _action) => { };
 
 const reducers = {
   setData,
   setError,
   setAuthentication,
+  sanitizeAuthentication,
 };
 
 export default reducers;
