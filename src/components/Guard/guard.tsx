@@ -7,13 +7,13 @@ import { Props } from './guard.type';
 
 export default function Guard({ children }: Props) {
   const navigate = useNavigate();
-  const location = useLocation();
+  const from = useLocation();
   const token = useSelector(tokenSelector);
 
   useEffect(() => {
     if (!token) {
       navigate(LOGIN_URL, {
-        state: location,
+        state: { from },
       });
     }
   }, [token]);
