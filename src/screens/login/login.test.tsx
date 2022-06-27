@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import component from '../../test/redux-connected-component';
+import { component } from '@test/redux-connected-component';
 import Login from './login';
 
 describe('Component: <Login />', () => {

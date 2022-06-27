@@ -7,10 +7,11 @@ import { useAppDispatch as useDispatch, useAppSelector as useSelector } from '@s
 import { tokenSelector } from '@store/user/user.selected';
 import { setAuthentication } from '@store/user/user.slice';
 import { Error } from '@type/yup';
-import NetflixLogo from '@assets/images/netflix-logo.png';
-import { Input, FormError, Button } from '@components';
+import {
+  Input, FormError, Button, Logo,
+} from '@components';
 
-import { Wrapper, Logo } from './login.styled';
+import { Wrapper } from './login.styled';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -58,7 +59,10 @@ export default function Login() {
   return (
     <Wrapper container justifyContent="center" alignContent="center">
       <Grid item container justifyContent="center" alignContent="center">
-        <Logo src={NetflixLogo} alt="netflix-logo" />
+        <Logo style={{
+          marginBottom: '139px',
+        }}
+        />
         <Input
           placeholder="Email"
           type="text"
