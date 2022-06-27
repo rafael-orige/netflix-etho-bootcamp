@@ -1,11 +1,24 @@
-import { PayloadAction } from "@reduxjs/toolkit"
+import {
+  SetData, SetError, SetAuthentication, SanitizeAuthentication,
+} from './user.type';
 
-const authenticated = (state: { authenticated: boolean }, action: PayloadAction<boolean>) => {
-    state.authenticated = action.payload
-}
+const setData: SetData = (state, action) => {
+  state.data = action.payload;
+};
+
+const setError: SetError = (state, action) => {
+  state.error = action.payload;
+};
+
+const setAuthentication: SetAuthentication = (_state, _action) => { };
+
+const logoff: SanitizeAuthentication = (_state, _action) => { };
 
 const reducers = {
-    authenticated
-}
+  setData,
+  setError,
+  setAuthentication,
+  logoff,
+};
 
-export default reducers
+export default reducers;

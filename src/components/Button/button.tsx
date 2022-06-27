@@ -1,10 +1,7 @@
-import { Button as ButtonStyled } from "./button.styled";
+import React from 'react';
+import { Button as ButtonStyled } from './button.styled';
+import { Props } from './button.type';
 
-type Props = {
-    onClick: () => void,
-    children: string
-}
-
-export default function Button({ onClick, children }: Props) {
-    return <ButtonStyled onClick={onClick} children={children} />
+export default function Button({ onClick, children, width = '100%' }: Props) {
+  return <ButtonStyled width={width} onClick={onClick}>{children}</ButtonStyled>;
 }

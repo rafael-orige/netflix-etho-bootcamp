@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Grid } from "@mui/material";
+import styled from 'styled-components';
+import { Grid } from '@mui/material';
 
-import Background from "../../assets/images/login-background.png";
+import Background from '../../assets/images/login-background.png';
 
 export const Wrapper = styled(Grid)`
     position: relative;
@@ -23,13 +23,19 @@ export const Wrapper = styled(Grid)`
         content:"";
         width: 100%;
         height: 100%;
-        background-color: ${props => props.theme.palette.core.secondary};
+        background-color: ${(props) => props.theme.palette.core.secondary};
         opacity: 0.95;
         z-index: -1;
+    }
+
+    div {
+      min-width: 320px;
+      max-width: 400px;
+      padding: 20px;
     }
 `;
 
 export const Logo = styled.img`
-    width: 288px;
+    width: 100%;
     margin-bottom: 139px;
 `;

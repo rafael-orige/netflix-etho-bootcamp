@@ -1,14 +1,19 @@
-import { createSlice } from "@reduxjs/toolkit"
-import reducers from "./user.reducer";
+import { createSlice } from '@reduxjs/toolkit';
+import reducers from './user.reducer';
+import { Data } from './user.type';
 
-const initialState = {
-    authenticated: false
+const initialState: Data = {
+  data: {},
+  error: '',
 };
 
 const userSlice = createSlice({
-    name: 'user',
-    initialState,
-    reducers
+  name: 'user',
+  initialState,
+  reducers,
 });
 
 export default userSlice;
+export const {
+  setAuthentication, setData, setError, logoff,
+} = userSlice.actions;
