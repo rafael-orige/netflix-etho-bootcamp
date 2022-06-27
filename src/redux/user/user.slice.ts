@@ -14,4 +14,6 @@ const userSlice = createSlice({
 });
 
 export default userSlice;
-export const { setAuthentication, setData, setError } = userSlice.actions;
+export const {
+  setAuthentication, setData, setError, logoff,
+} = userSlice.actions;

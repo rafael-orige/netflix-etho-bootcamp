@@ -3,7 +3,7 @@ import userService from '@services/user/user';
 import { AuthResponse, AuthPayload } from '@services/user/user.type';
 import { SagaErrorMessage } from '@enums';
 import { PayloadAction } from '@reduxjs/toolkit';
-import { setData, setError } from './user.slice';
+import userSlice, { setData, setError } from './user.slice';
 
 function* setAuthentication(action: PayloadAction<AuthPayload>) {
   try {
@@ -16,6 +16,12 @@ function* setAuthentication(action: PayloadAction<AuthPayload>) {
   }
 }
 
+function* sanitizeAuthentication() {
+  const { data } = userSlice.getInitialState();
+  yield put(setData(data));
+}
+
 export const userSaga = [
   takeLatest('user/setAuthentication', setAuthentication),
+  takeLatest('user/logoff', sanitizeAuthentication),
 ];

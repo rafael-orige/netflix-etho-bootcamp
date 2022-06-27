@@ -12,13 +12,13 @@ const setError: SetError = (state, action) => {
 
 const setAuthentication: SetAuthentication = (_state, _action) => { };
 
-const sanitizeAuthentication: SanitizeAuthentication = (_state, _action) => { };
+const logoff: SanitizeAuthentication = (_state, _action) => { };
 
 const reducers = {
   setData,
   setError,
   setAuthentication,
-  sanitizeAuthentication,
+  logoff,
 };
 
 export default reducers;
