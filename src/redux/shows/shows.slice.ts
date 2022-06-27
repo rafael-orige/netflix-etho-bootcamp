@@ -1,19 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ShowCategory } from '@enums';
 import reducers from './shows.reducers';
 import { Data } from './shows.type';
 
 const initialState: Data = {
-  data: [{
-    id: 0,
-    title: '',
-    cover: '',
-    director: '',
-    actors: '',
-    description: '',
-    category: ShowCategory.MOVIE,
-    episodes: [],
-  }],
+  data: {
+    list: {},
+    myShows: [],
+  },
   settings: {
     loading: false,
   },
@@ -28,5 +21,5 @@ const showsSlice = createSlice({
 
 export default showsSlice;
 export const {
-  setData, setError, setShows, setLoading,
+  setData, setError, setShows, setLoading, setUserList, setMyList,
 } = showsSlice.actions;

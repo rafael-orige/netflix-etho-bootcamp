@@ -2,7 +2,10 @@ import { ShowCategory } from '@enums';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 export type Data = {
-  data: Show[],
+  data: {
+    list: List,
+    myShows: Show[]
+  },
   settings: {
     loading: boolean
   },
@@ -20,6 +23,10 @@ export type Show = {
   episodes: Episode[]
 };
 
+export type List = {
+  [key: string]: Show[]
+};
+
 type Episode = {
   id: number,
   title: string,
@@ -29,9 +36,11 @@ type Episode = {
   show: Omit<Data['data'], 'episodes'>
 };
 
-export type ShowPayload<Payload> = (state: Data, action: PayloadAction<Payload>) => void;
+export type BaseReducer<Payload> = (state: Data, action: PayloadAction<Payload>) => void;
 
-export type SetError = ShowPayload<Data['error']>;
-export type SetData = ShowPayload<Show[]>;
-export type SetLoading = ShowPayload<Data['settings']['loading']>;
-export type SetShows = ShowPayload<undefined>;
+export type SetError = BaseReducer<Data['error']>;
+export type SetData = BaseReducer<List>;
+export type SetUserList = BaseReducer<Show[]>;
+export type SetLoading = BaseReducer<Data['settings']['loading']>;
+export type SetShows = BaseReducer<undefined>;
+export type SetMyList = BaseReducer<undefined>;
