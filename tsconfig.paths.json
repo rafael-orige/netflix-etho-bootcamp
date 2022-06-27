@@ -28,6 +28,9 @@
       ],
       "@enums": [
         "src/enums"
+      ],
+      "@test/*": [
+        "src/test/*"
       ]
     }
   }
